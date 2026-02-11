@@ -23,9 +23,21 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Lock body scroll when menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
   return (
-    <nav className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 ${scrolled || isOpen ? 'glass-nav py-5 bg-premium-bg/90' : 'bg-transparent py-8'}`}>
-      <div className="max-w-[1800px] mx-auto px-6 md:px-12 flex justify-between items-center relative z-[101]">
+    <nav className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-500 ${isOpen ? 'bg-premium-bg py-5' : scrolled ? 'glass-nav py-5' : 'bg-transparent py-8'}`}>
+      <div className="max-w-[1800px] mx-auto px-6 md:px-12 flex justify-between items-center relative z-[1001]">
         {/* Logo */}
         <Link
           to="/"
@@ -60,7 +72,7 @@ export const Navbar: React.FC = () => {
       </div>
 
       {/* Mobile Menu Overlay */}
-      <div className={`fixed inset-0 bg-premium-bg/95 backdrop-blur-xl z-[90] transition-all duration-500 ease-in-out md:hidden flex flex-col justify-center items-center gap-10 ${isOpen ? 'opacity-100 visible translate-x-0' : 'opacity-0 invisible translate-x-full'}`}>
+      <div className={`fixed inset-0 bg-premium-bg z-[999] transition-all duration-300 ease-in-out md:hidden flex flex-col justify-center items-center gap-10 ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
         {navItems.map((item) => (
           <Link
             key={item.label}
@@ -71,6 +83,17 @@ export const Navbar: React.FC = () => {
             {item.label}
           </Link>
         ))}
+
+        <div className="mt-8">
+          <a
+            href="https://wa.link/pvhwp2"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-8 py-4 bg-premium-gold text-black text-sm font-bold uppercase tracking-widest hover:bg-white transition-colors"
+          >
+            Análise Gratuita
+          </a>
+        </div>
       </div>
     </nav>
   );
