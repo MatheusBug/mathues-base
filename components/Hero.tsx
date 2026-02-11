@@ -40,7 +40,7 @@ export const Hero: React.FC = () => {
         {/* Massive Typography */}
         <div className="relative mb-12 z-20">
           <Reveal delay={100}>
-            <h1 className="font-serif text-6xl sm:text-7xl md:text-[8rem] font-medium text-white tracking-tight leading-[0.9]">
+            <h1 className="font-serif text-5xl sm:text-6xl md:text-[8rem] font-medium text-white tracking-tight leading-[0.9]">
               {HERO_DATA.name.split(' ')[0]} <br />
               <span className="italic text-premium-dim">{HERO_DATA.name.split(' ')[1]}</span>
               <span className="text-premium-gold">.</span>
@@ -57,11 +57,11 @@ export const Hero: React.FC = () => {
               <p className="text-premium-dim text-lg md:text-xl font-normal leading-relaxed">
                 {HERO_DATA.subtitle}
               </p>
-              <div className="flex gap-6 mt-10">
+              <div className="flex flex-col md:flex-row gap-6 mt-10 items-center justify-center md:justify-start w-full">
                 <Button onClick={() => window.open(HERO_DATA.ctaLink, '_blank')}>
                   {HERO_DATA.ctaText}
                 </Button>
-                <a href="#projects" className="flex items-center gap-3 px-6 py-5 text-xs font-bold uppercase tracking-widest text-white border-b border-transparent hover:border-premium-gold transition-all">
+                <a href="#projects" className="flex items-center justify-center gap-3 px-8 py-5 text-sm font-bold uppercase tracking-widest text-white border-b border-white/20 hover:border-premium-gold transition-all w-full md:w-auto">
                   Ver Portfolio
                 </a>
               </div>

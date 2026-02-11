@@ -13,7 +13,7 @@ export const Footer: React.FC = () => {
             href="https://wa.link/pvhwp2"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-serif text-[11vw] leading-[0.85] text-white hover:text-neutral-400 transition-colors block border-b border-white/10 pb-8"
+            className="font-serif text-5xl md:text-[9vw] lg:text-[11vw] leading-[0.85] text-white hover:text-neutral-400 transition-colors block border-b border-white/10 pb-8"
           >
             Começar <br /> <span className="italic text-white/40 group-hover:text-white/60 transition-colors">Projeto</span>
           </a>
